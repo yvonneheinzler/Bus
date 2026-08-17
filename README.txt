@@ -1,19 +1,23 @@
-NACH HAUSE – BUS APP v4 (VORLÄUFIG BIS GEOFOX)
+BUS-APP v5 – HIN- UND RÜCKFAHRT
 
-Diese Version berücksichtigt:
-- Einstieg IGS, Hittfeld
-- Einstieg Schulzentrum Hittfeld
-- ausschließlich Linien 4602 und 4603
-- ausschließlich direkte Verbindungen ohne Umstieg
-- Ziele Domänenweg, Ringstraße oder Landesstraße
-- aktueller und nächster passender Bus
-- Fahrzeit, Ankunft, Countdown und Ausstieg
+Neu:
+- großer Umschalter "ZUR SCHULE" / "NACH HAUSE"
+- merkt sich die zuletzt gewählte Richtung
+- zeigt aktuellen und nächsten möglichen Bus
+- nur Linien 4602 und 4603
+- nur direkte Fahrten, ohne Umstieg
+- berücksichtigt:
+  Schule: IGS, Hittfeld + Schulzentrum Hittfeld
+  Lindhorst: Domänenweg + Ringstraße + Landesstraße
+- zeigt Abfahrt, Einstiegshaltestelle, Ankunft, Ausstiegshaltestelle und Fahrzeit
 - automatische Aktualisierung jede Minute
+- rotes Linien-Schild zeigt dynamisch 4602 oder 4603
 
 WICHTIG:
-Die KVG veröffentlicht für 4602 und 4603 neue Fahrpläne ab 13.08.2026.
-Bis offizielle Geofox-Zugangsdaten vorliegen, verwendet die App weiterhin die
-vorläufige Transitous/MOTIS-Datenquelle. Daher kann nicht garantiert werden,
-dass jede Uhrzeit oder Echtzeitinformation mit HVV übereinstimmt.
+Diese Version verwendet weiterhin Transitous/MOTIS als vorläufige Datenquelle.
+Sobald der Geofox-Zugang vorliegt, sollte nur die Datenlogik ausgetauscht werden.
+Design und Bedienung können unverändert bleiben.
 
-Nach Erhalt der Geofox-Zugangsdaten sollte die Datenebene auf Geofox umgestellt werden.
+GITHUB:
+Zum Aktualisieren des bestehenden GitHub-Pages-Projekts die Dateien aus dieser ZIP
+in das Repository "Bus" hochladen und bestehende Dateien ersetzen.

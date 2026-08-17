@@ -1,7 +1,7 @@
 {
-  "name": "Nach Hause – Bus v4",
-  "short_name": "Nach Hause",
-  "description": "Direkte Busverbindungen vom Schulzentrum Hittfeld nach Lindhorst.",
+  "name": "Bus – Schule & Zuhause",
+  "short_name": "Bus",
+  "description": "Direkte Busverbindungen zwischen Lindhorst und IGS/Schulzentrum Hittfeld.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

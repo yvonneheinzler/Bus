@@ -6,90 +6,77 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Nach Hause">
+<meta name="apple-mobile-web-app-title" content="Bus">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="assets/icon-192.png">
-<title>Nach Hause</title>
+<title>Bus – Schule & Zuhause</title>
 <style>
 :root{
-  --green:#11a63a; --green-soft:#edf9f0;
-  --blue:#1571d3; --blue-soft:#eff6fe;
-  --red:#df2b21; --ink:#08182d; --muted:#5b6570;
-  --line:#dce3e9; --bg:#f6f8fa;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Arial,sans-serif;
+  --green:#12a541; --green2:#2bb157; --green-soft:#edf9f0;
+  --blue:#196fc7; --blue2:#2b83dc; --blue-soft:#eef6ff;
+  --red:#df2b21; --ink:#0b1b31; --muted:#65707b; --line:#dfe5ea; --bg:#f5f7f9;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Arial,sans-serif
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#101418;min-height:100vh}
-.shell{max-width:620px;margin:0 auto;background:white;min-height:100vh;padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+body{margin:0;background:var(--bg);color:#101418}
+.shell{max-width:620px;margin:0 auto;background:white;min-height:100vh;padding-bottom:calc(26px + env(safe-area-inset-bottom))}
 .topbar{
-  display:flex;justify-content:space-between;align-items:center;padding:calc(12px + env(safe-area-inset-top)) 18px 10px;
-  font-size:14px;border-bottom:1px solid #edf0f2;background:#fff;position:sticky;top:0;z-index:5
+  padding:calc(10px + env(safe-area-inset-top)) 18px 10px;display:flex;justify-content:space-between;
+  align-items:center;font-size:13px;border-bottom:1px solid #edf0f2;background:#fff;position:sticky;top:0;z-index:20
 }
-.head{padding:18px 18px 16px;border-bottom:4px solid var(--red);display:flex;align-items:center;gap:14px}
-.school{font-size:48px;line-height:1}
-.head h1{margin:0;color:var(--ink);font-size:36px;letter-spacing:.4px;font-weight:900}
-.head .route{font-size:18px;margin-top:3px}
-.bus-emoji{margin-left:auto;font-size:48px}
+.head{padding:16px 18px 12px;border-bottom:4px solid var(--red)}
+.title-row{display:flex;align-items:center;gap:12px}
+.title-icon{font-size:43px}.head h1{margin:0;font-size:31px;color:var(--ink);font-weight:950;letter-spacing:.2px}
+.route{margin-top:4px;font-size:16px;color:#333}
 
-main{padding:18px}
-.card{
-  border-radius:22px;background:white;overflow:hidden;margin-bottom:18px;
-  box-shadow:0 5px 18px rgba(0,0,0,.10)
-}
-.card.current{border:2px solid var(--green)}
-.card.next{border:2px solid var(--blue)}
-.ribbon{
-  display:flex;justify-content:space-between;align-items:center;gap:10px;
-  color:white;font-weight:900;font-size:21px;padding:13px 16px
-}
-.current .ribbon{background:linear-gradient(90deg,#0a9d32,#29ad4d)}
-.next .ribbon{background:linear-gradient(90deg,#1265bd,#2584de)}
-.wait{font-size:15px;font-weight:700;white-space:nowrap}
-.cardbody{padding:18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.left{border-right:1px solid #d9dee3;padding-right:14px}
-.right{padding-left:4px}
-.line-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.operator{
-  background:var(--red);color:white;font-weight:900;font-size:20px;
-  padding:8px 11px;clip-path:polygon(14% 0,86% 0,100% 50%,86% 100%,14% 100%,0 50%)
-}
+.switch-wrap{padding:15px 18px 5px;background:#fff}
+.direction-switch{display:grid;grid-template-columns:1fr 1fr;gap:7px;background:#edf1f4;border-radius:17px;padding:5px}
+.dir-btn{border:0;border-radius:13px;padding:13px 8px;font-weight:900;font-size:16px;background:transparent;color:#53606d;box-shadow:none}
+.dir-btn.active{background:#fff;color:#0d1c2f;box-shadow:0 2px 9px #0002}
+.dir-btn .emoji{font-size:22px;display:block;margin-bottom:3px}
+
+main{padding:13px 18px 20px}
+.card{border-radius:22px;background:#fff;overflow:hidden;margin-bottom:18px;box-shadow:0 5px 18px rgba(0,0,0,.10)}
+.card.current{border:2px solid var(--green)} .card.next{border:2px solid var(--blue)}
+.ribbon{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#fff;font-weight:900;font-size:20px;padding:12px 15px;flex-wrap:wrap}
+.current .ribbon{background:linear-gradient(90deg,var(--green),var(--green2))}
+.next .ribbon{background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.wait{font-size:13px;font-weight:800}
+.body{padding:17px}
+.bus-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
+.operator{background:var(--red);color:#fff;font-weight:950;font-size:18px;padding:8px 12px;clip-path:polygon(14% 0,86% 0,100% 50%,86% 100%,14% 100%,0 50%)}
 .line-shield{
-  display:inline-flex;align-items:center;justify-content:center;min-width:145px;height:56px;
-  padding:0 24px;color:white;background:var(--red);font-size:38px;font-weight:900;line-height:1;
+  min-width:135px;height:55px;display:flex;align-items:center;justify-content:center;padding:0 22px;
+  color:#fff;background:var(--red);font-size:37px;font-weight:950;line-height:1;
   clip-path:polygon(11% 0,89% 0,100% 50%,89% 100%,11% 100%,0 50%)
 }
-.depart{font-size:53px;line-height:1;font-weight:900;letter-spacing:-1px;margin:8px 0}
-.small{color:var(--muted);font-size:14px}.from{font-size:16px;margin:7px 0 12px}
-.travel{
-  display:inline-flex;align-items:center;gap:7px;border-radius:10px;padding:8px 10px;
-  font-size:17px;font-weight:800
-}
-.current .travel{background:var(--green-soft);color:#07842b}
-.next .travel{background:var(--blue-soft);color:#1267ba}
-.destlabel{font-size:15px;font-weight:800;color:#505862;margin-top:5px}
-.dest{font-size:29px;font-weight:900;margin:8px 0 2px;line-height:1.05}
-.place{font-size:17px;margin-bottom:18px}
-.arrival{font-size:17px}.arrivaltime{font-weight:900}
-.realtime{font-size:13px;color:#087e2b;font-weight:800;margin-top:8px}
-.notice{
-  border:1px solid #caddeb;background:#f8fbfe;border-radius:16px;padding:13px 14px;
-  font-size:14px;line-height:1.45;margin:12px 0 18px
-}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-button{
-  border:0;border-radius:15px;padding:16px 10px;font-size:16px;font-weight:900;color:#12315c;background:#f0f3f6;
-  box-shadow:0 2px 7px rgba(0,0,0,.08)
-}
-button:active{transform:scale(.99)}
-.status{text-align:center;color:#68727d;font-size:12px;padding:12px 4px}
-.error{background:#fff1f0;border:1px solid #e9a09b;color:#861c16;padding:14px;border-radius:14px;margin-bottom:16px}
-.loading{background:#fff;border:1px solid var(--line);padding:18px;border-radius:16px;margin-bottom:16px;font-weight:800}
+.trip-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+.point .lab{font-size:12px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.3px}
+.point .time{font-size:38px;font-weight:950;line-height:1.05;margin:4px 0}
+.point .stop{font-size:18px;font-weight:900;line-height:1.15}
+.arrow{font-size:28px;color:#6d7884}
+.meta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:16px;padding-top:13px;border-top:1px solid #e6eaee}
+.duration{display:inline-flex;gap:6px;align-items:center;border-radius:10px;padding:8px 10px;font-weight:900;font-size:15px}
+.current .duration{background:var(--green-soft);color:#087f2d}.next .duration{background:var(--blue-soft);color:#1366b2}
+.live{font-size:12px;color:#5e6974;text-align:right}
+.big-stop{margin-top:13px;border-radius:13px;padding:11px 12px;font-size:15px}
+.current .big-stop{background:#f1fbf4}.next .big-stop{background:#f2f7fd}
+.big-stop b{font-size:18px}
+
+.notice{border:1px solid #cfdeea;background:#f9fbfd;border-radius:15px;padding:13px 14px;font-size:13px;line-height:1.45;margin:4px 0 16px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.actions button{border:0;border-radius:14px;padding:15px 9px;font-size:15px;font-weight:900;color:#12335d;background:#eef2f5;box-shadow:0 2px 7px #0001}
+.loading,.error{border-radius:15px;padding:16px;margin-bottom:15px;font-weight:800}
+.loading{border:1px solid #dfe4e8;background:#fff}.error{background:#fff0ef;border:1px solid #e8a09b;color:#8b2018}
+.status{text-align:center;color:#727c86;font-size:11px;padding:12px 4px}
 .hidden{display:none!important}
-@media(max-width:440px){
-  .head h1{font-size:29px}.head .route{font-size:15px}.school,.bus-emoji{font-size:38px}
-  .grid{grid-template-columns:1fr}.left{border-right:0;border-bottom:1px solid #d9dee3;padding:0 0 16px}.right{padding:0}
-  .depart{font-size:48px}.dest{font-size:28px}.ribbon{font-size:18px;flex-wrap:wrap}.wait{font-size:13px}
+
+@media(max-width:430px){
+ .head h1{font-size:27px}.title-icon{font-size:38px}.route{font-size:14px}
+ .dir-btn{font-size:14px;padding:11px 5px}
+ .trip-grid{grid-template-columns:1fr 28px 1fr}
+ .point .time{font-size:33px}.point .stop{font-size:16px}.line-shield{min-width:120px;font-size:34px}
+ .ribbon{font-size:17px}
 }
 </style>
 </head>
@@ -101,10 +88,25 @@ button:active{transform:scale(.99)}
   </div>
 
   <header class="head">
-    <div class="school">🏫</div>
-    <div><h1>NACH HAUSE</h1><div class="route">IGS / Schulzentrum Hittfeld → Lindhorst</div></div>
-    <div class="bus-emoji">🚌</div>
+    <div class="title-row">
+      <div class="title-icon" id="titleIcon">🏠</div>
+      <div>
+        <h1 id="title">NACH HAUSE</h1>
+        <div class="route" id="routeText">IGS / Schulzentrum Hittfeld → Lindhorst</div>
+      </div>
+    </div>
   </header>
+
+  <div class="switch-wrap">
+    <div class="direction-switch">
+      <button class="dir-btn" id="toSchoolBtn" onclick="setDirection('school')">
+        <span class="emoji">🏫</span>ZUR SCHULE
+      </button>
+      <button class="dir-btn active" id="toHomeBtn" onclick="setDirection('home')">
+        <span class="emoji">🏠</span>NACH HAUSE
+      </button>
+    </div>
+  </div>
 
   <main>
     <div id="loading" class="loading">Direkte Busverbindungen werden gesucht …</div>
@@ -112,101 +114,111 @@ button:active{transform:scale(.99)}
 
     <section id="current" class="card current hidden">
       <div class="ribbon"><span>✓ DIESEN BUS NEHMEN</span><span class="wait" id="c-wait"></span></div>
-      <div class="cardbody">
-        <div class="grid">
-          <div class="left">
-            <div class="line-row"><span class="operator">KVG</span><span class="line-shield" id="c-line">—</span></div>
-            <div class="depart" id="c-dep">--:--</div>
-            <div class="from">Abfahrt: Schulzentrum Hittfeld</div>
-            <div class="travel">⏱ Fahrzeit: <span id="c-duration">—</span></div>
+      <div class="body">
+        <div class="bus-top"><span class="operator">KVG</span><span class="line-shield" id="c-line">—</span></div>
+        <div class="trip-grid">
+          <div class="point">
+            <div class="lab">Abfahrt</div>
+            <div class="time" id="c-dep">--:--</div>
+            <div class="stop" id="c-from">—</div>
           </div>
-          <div class="right">
-            <div class="destlabel">AUSSTEIGEN BEI</div>
-            <div class="dest">📍 <span id="c-dest">—</span></div>
-            <div class="place">Lindhorst</div>
-            <div class="arrival">⏱ Ankunft: <span class="arrivaltime" id="c-arr">—</span></div>
-            <div class="realtime" id="c-live"></div>
+          <div class="arrow">→</div>
+          <div class="point">
+            <div class="lab">Ankunft</div>
+            <div class="time" id="c-arr">--:--</div>
+            <div class="stop" id="c-to">—</div>
           </div>
         </div>
+        <div class="meta">
+          <div class="duration">⏱ Fahrzeit: <span id="c-duration">—</span></div>
+          <div class="live" id="c-live"></div>
+        </div>
+        <div class="big-stop" id="c-advice"></div>
       </div>
     </section>
 
     <section id="next" class="card next hidden">
       <div class="ribbon"><span>➜ NÄCHSTER MÖGLICHER BUS</span><span class="wait" id="n-wait"></span></div>
-      <div class="cardbody">
-        <div class="grid">
-          <div class="left">
-            <div class="line-row"><span class="operator">KVG</span><span class="line-shield" id="n-line">—</span></div>
-            <div class="depart" id="n-dep">--:--</div>
-            <div class="from">Abfahrt: Schulzentrum Hittfeld</div>
-            <div class="travel">⏱ Fahrzeit: <span id="n-duration">—</span></div>
+      <div class="body">
+        <div class="bus-top"><span class="operator">KVG</span><span class="line-shield" id="n-line">—</span></div>
+        <div class="trip-grid">
+          <div class="point">
+            <div class="lab">Abfahrt</div>
+            <div class="time" id="n-dep">--:--</div>
+            <div class="stop" id="n-from">—</div>
           </div>
-          <div class="right">
-            <div class="destlabel">AUSSTEIGEN BEI</div>
-            <div class="dest">📍 <span id="n-dest">—</span></div>
-            <div class="place">Lindhorst</div>
-            <div class="arrival">⏱ Ankunft: <span class="arrivaltime" id="n-arr">—</span></div>
-            <div class="realtime" id="n-live"></div>
+          <div class="arrow">→</div>
+          <div class="point">
+            <div class="lab">Ankunft</div>
+            <div class="time" id="n-arr">--:--</div>
+            <div class="stop" id="n-to">—</div>
           </div>
         </div>
+        <div class="meta">
+          <div class="duration">⏱ Fahrzeit: <span id="n-duration">—</span></div>
+          <div class="live" id="n-live"></div>
+        </div>
+        <div class="big-stop" id="n-advice"></div>
       </div>
     </section>
 
-    <div class="notice">
-      ℹ️ Es werden ausschließlich <b>direkte Fahrten der Linien 4602 und 4603 ohne Umstieg</b> angezeigt.<br>
-      Einstieg: <b>IGS, Hittfeld oder Schulzentrum Hittfeld</b>.<br>
-      Ziel: <b>Domänenweg, Ringstraße oder Landesstraße</b> in Lindhorst.<br>
-      Die App wählt die <b>erste passende Lindhorster Haltestelle</b> der jeweiligen Fahrt.
-      <br><br><b>Vorläufige Version:</b> Bis der Geofox-Zugang vorliegt, können Echtzeitdaten oder einzelne Fahrten abweichen.
+    <div class="notice" id="notice">
+      ℹ️ Nur <b>direkte Fahrten ohne Umstieg</b> der Linien <b>4602 und 4603</b>.
+      Vorläufige Datenquelle bis Geofox verfügbar ist.
     </div>
 
     <div class="actions">
-      <button id="mapBtn" onclick="openMap()">🗺 KARTE ANZEIGEN</button>
+      <button onclick="openMap()">🗺 KARTE</button>
       <button onclick="loadTrips()">↻ AKTUALISIEREN</button>
     </div>
-    <div class="status" id="status">Die App aktualisiert sich automatisch jede Minute.</div>
+    <div class="status" id="status">Automatische Aktualisierung jede Minute.</div>
   </main>
 </div>
 
-
 <script>
 const API='https://api.transitous.org/api';
+const ALLOWED_LINES=new Set(['4602','4603']);
 
-const ORIGINS=[
+const SCHOOL_STOPS=[
   {query:'Hittfeld IGS Seevetal', label:'IGS, Hittfeld'},
   {query:'Hittfeld Schulzentrum Seevetal', label:'Schulzentrum Hittfeld'}
 ];
 
-const TARGETS=[
+const HOME_STOPS=[
   {query:'Lindhorst Domänenweg Seevetal', label:'Domänenweg'},
   {query:'Lindhorst Ringstraße Seevetal', label:'Ringstraße'},
   {query:'Lindhorst Landesstraße Seevetal', label:'Landesstraße'}
 ];
 
-const ALLOWED_LINES=new Set(['4602','4603']);
-let currentDestination='Domänenweg';
+let direction=localStorage.getItem('busDirection') || 'home';
+let currentTrip=null;
 
 function updateClock(){
   document.getElementById('clock').textContent=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
 }
 setInterval(updateClock,1000); updateClock();
 
-function fmt(t){
-  return new Intl.DateTimeFormat('de-DE',{hour:'2-digit',minute:'2-digit'}).format(new Date(t));
+function fmt(t){return new Intl.DateTimeFormat('de-DE',{hour:'2-digit',minute:'2-digit'}).format(new Date(t))}
+function minsUntil(t){return Math.max(0,Math.ceil((new Date(t)-new Date())/60000))}
+function durationMinutes(a,b){return Math.max(0,Math.round((new Date(b)-new Date(a))/60000))}
+function cleanLine(x){return String(x||'').replace(/^Bus\s*/i,'').trim()}
+
+function setDirection(d){
+  direction=d;
+  localStorage.setItem('busDirection',d);
+  updateDirectionUI();
+  loadTrips();
 }
-function minsUntil(t){
-  return Math.max(0,Math.ceil((new Date(t)-new Date())/60000));
-}
-function durationMinutes(a,b){
-  return Math.max(0,Math.round((new Date(b)-new Date(a))/60000));
-}
-function cleanLine(x){
-  return String(x||'').replace(/^Bus\s*/i,'').trim();
-}
-function inSchoolWindow(dateString){
-  const d=new Date(dateString);
-  const h=d.getHours()+d.getMinutes()/60;
-  return h>=11.5 && h<=16.5;
+
+function updateDirectionUI(){
+  const school=direction==='school';
+  document.getElementById('toSchoolBtn').classList.toggle('active',school);
+  document.getElementById('toHomeBtn').classList.toggle('active',!school);
+  document.getElementById('title').textContent=school?'ZUR SCHULE':'NACH HAUSE';
+  document.getElementById('titleIcon').textContent=school?'🏫':'🏠';
+  document.getElementById('routeText').textContent=school
+    ? 'Lindhorst → IGS / Schulzentrum Hittfeld'
+    : 'IGS / Schulzentrum Hittfeld → Lindhorst';
 }
 
 async function geocode(text){
@@ -218,14 +230,14 @@ async function geocode(text){
   if(!r.ok) throw new Error('Eine Haltestelle konnte nicht gefunden werden.');
   const data=await r.json();
   const arr=Array.isArray(data)?data:(data.features||data.results||[]);
-  if(!arr.length) throw new Error('Eine Haltestelle konnte nicht gefunden werden: '+text);
-
+  if(!arr.length) throw new Error('Haltestelle nicht gefunden: '+text);
   const hit=arr.find(x=>{
     const s=JSON.stringify(x).toLowerCase();
-    return (s.includes('seevetal') || s.includes('hittfeld') || s.includes('lindhorst'));
-  }) || arr[0];
-
-  return hit.id||hit.stopId||hit.place?.stopId||hit.place?.id||hit.properties?.id;
+    return s.includes('seevetal')||s.includes('hittfeld')||s.includes('lindhorst');
+  })||arr[0];
+  const id=hit.id||hit.stopId||hit.place?.stopId||hit.place?.id||hit.properties?.id;
+  if(!id) throw new Error('Haltestellen-ID konnte nicht ermittelt werden.');
+  return id;
 }
 
 async function plan(from,to){
@@ -237,7 +249,7 @@ async function plan(from,to){
   u.searchParams.set('numItineraries','8');
   u.searchParams.set('language','de');
   const r=await fetch(u,{cache:'no-store'});
-  if(!r.ok) throw new Error('Live-Fahrplandaten konnten nicht geladen werden.');
+  if(!r.ok) throw new Error('Fahrplandaten konnten nicht geladen werden.');
   return r.json();
 }
 
@@ -245,144 +257,129 @@ function getBusLeg(it){
   const legs=it.legs||[];
   const buslegs=legs.filter(l=>{
     const m=String(l.mode||l.transportMode||'').toUpperCase();
-    return m==='BUS' || (!!l.routeShortName && !['WALK','FOOT'].includes(m));
+    return m==='BUS'||(!!l.routeShortName&&!['WALK','FOOT'].includes(m));
   });
   if(buslegs.length!==1) return null;
   if((it.transfers ?? 0)!==0) return null;
   return buslegs[0];
 }
 
-function normalize(it,origin,target){
-  const leg=getBusLeg(it);
-  if(!leg) return null;
-
+function normalize(it,fromStop,toStop){
+  const leg=getBusLeg(it); if(!leg) return null;
   const dep=leg.departure||leg.startTime||it.startTime;
   const arr=leg.arrival||leg.endTime||it.endTime;
-  if(!dep||!arr) return null;
-  if(new Date(dep)<new Date(Date.now()-45000)) return null;
+  if(!dep||!arr||new Date(dep)<new Date(Date.now()-45000)) return null;
 
   const line=cleanLine(leg.routeShortName||leg.displayName||leg.tripShortName||leg.routeLongName);
   if(!ALLOWED_LINES.has(line)) return null;
-  if(!inSchoolWindow(dep)) return null;
 
-  const tripId=String(
-    leg.tripId || leg.trip?.id || leg.trip?.tripId ||
-    it.tripId || leg.serviceJourneyId || ''
-  );
-
+  const tripId=String(leg.tripId||leg.trip?.id||leg.trip?.tripId||it.tripId||leg.serviceJourneyId||'');
   return {
-    dep, arr, line,
-    origin:origin.label,
-    target:target.label,
+    dep,arr,line,from:fromStop.label,to:toStop.label,
+    duration:durationMinutes(dep,arr),
     realtime:Boolean(leg.realTime||leg.realtime||leg.isRealtime),
     cancelled:Boolean(leg.cancelled||leg.canceled),
-    duration:durationMinutes(dep,arr),
     tripId
   };
 }
 
-function chooseFirstPermittedStop(candidates){
+/*
+  Same physical bus can appear several times because we query all allowed start/end stops.
+  We collapse those duplicates:
+  - earliest usable departure among the allowed boarding stops
+  - if departure is identical, earliest allowed arrival
+*/
+function collapseSameTrips(items){
   const groups=new Map();
-
-  for(const t of candidates){
-    const depMinute=Math.round(new Date(t.dep).getTime()/60000);
-    const key=t.tripId
-      ? `${t.origin}|${t.line}|${t.tripId}`
-      : `${t.origin}|${t.line}|${depMinute}`;
-
+  for(const t of items){
+    const minute=Math.round(new Date(t.dep).getTime()/60000);
+    const key=t.tripId ? `${t.line}|${t.tripId}` : `${t.line}|${minute}`;
     if(!groups.has(key)) groups.set(key,[]);
     groups.get(key).push(t);
   }
-
-  const trips=[];
+  const result=[];
   for(const arr of groups.values()){
-    arr.sort((a,b)=>new Date(a.arr)-new Date(b.arr));
-    trips.push(arr[0]);
+    arr.sort((a,b)=>{
+      const d=new Date(a.dep)-new Date(b.dep);
+      if(d!==0) return d;
+      return new Date(a.arr)-new Date(b.arr);
+    });
+    result.push(arr[0]);
   }
-
-  trips.sort((a,b)=>new Date(a.dep)-new Date(b.dep));
-  const merged=[];
-  for(const t of trips){
-    const duplicate=merged.find(x =>
-      x.line===t.line &&
-      Math.abs(new Date(x.dep)-new Date(t.dep)) <= 3*60*1000 &&
-      x.target===t.target
-    );
-    if(!duplicate){
-      merged.push(t);
-    } else if(new Date(t.dep)>new Date(duplicate.dep)) {
-      Object.assign(duplicate,t);
-    }
-  }
-  return merged.sort((a,b)=>new Date(a.dep)-new Date(b.dep));
+  return result.sort((a,b)=>new Date(a.dep)-new Date(b.dep));
 }
 
 function render(prefix,t){
   document.getElementById(prefix+'-line').textContent=t.line;
   document.getElementById(prefix+'-dep').textContent=fmt(t.dep);
-  document.getElementById(prefix+'-dest').textContent=t.target;
-  document.getElementById(prefix+'-arr').textContent=fmt(t.arr)+' Uhr';
-  document.getElementById(prefix+'-duration').textContent=t.duration+' Minuten';
-  document.getElementById(prefix+'-wait').textContent='Fährt in etwa '+minsUntil(t.dep)+' Min.';
-  document.getElementById(prefix+'-live').textContent=
-    (t.realtime?'● Datenquelle meldet Echtzeit · ':'')+'Einstieg: '+t.origin;
+  document.getElementById(prefix+'-arr').textContent=fmt(t.arr);
+  document.getElementById(prefix+'-from').textContent=t.from;
+  document.getElementById(prefix+'-to').textContent=t.to;
+  document.getElementById(prefix+'-duration').textContent=t.duration+' Min.';
+  document.getElementById(prefix+'-wait').textContent='in ca. '+minsUntil(t.dep)+' Min.';
+  document.getElementById(prefix+'-live').textContent=t.realtime?'● Datenquelle meldet Echtzeit':'Fahrplandaten';
+  document.getElementById(prefix+'-advice').innerHTML=direction==='school'
+    ? '📍 <b>Einsteigen bei: '+t.from+'</b><br>🏫 Aussteigen bei: '+t.to
+    : '🏫 Einsteigen bei: '+t.from+'<br>📍 <b>Aussteigen bei: '+t.to+'</b>';
 }
 
 function openMap(){
-  const dest=encodeURIComponent(currentDestination+', Lindhorst, Seevetal');
-  const start=encodeURIComponent('Schulzentrum Hittfeld, Seevetal');
-  window.location.href=`https://maps.apple.com/?saddr=${start}&daddr=${dest}&dirflg=r`;
+  if(!currentTrip) return;
+  const s=encodeURIComponent(currentTrip.from+', Seevetal');
+  const d=encodeURIComponent(currentTrip.to+', Seevetal');
+  window.location.href=`https://maps.apple.com/?saddr=${s}&daddr=${d}&dirflg=r`;
 }
 
 async function loadTrips(){
+  updateDirectionUI();
   const loading=document.getElementById('loading');
   const error=document.getElementById('error');
   loading.classList.remove('hidden');
   error.classList.add('hidden');
+  document.getElementById('current').classList.add('hidden');
+  document.getElementById('next').classList.add('hidden');
 
   try{
-    const origins=await Promise.all(ORIGINS.map(async o=>({...o,id:await geocode(o.query)})));
-    const targets=await Promise.all(TARGETS.map(async t=>({...t,id:await geocode(t.query)})));
+    const starts=direction==='school'?HOME_STOPS:SCHOOL_STOPS;
+    const ends=direction==='school'?SCHOOL_STOPS:HOME_STOPS;
+
+    const resolvedStarts=await Promise.all(starts.map(async s=>({...s,id:await geocode(s.query)})));
+    const resolvedEnds=await Promise.all(ends.map(async s=>({...s,id:await geocode(s.query)})));
 
     const jobs=[];
-    for(const o of origins){
-      for(const t of targets){
-        jobs.push({o,t,promise:plan(o.id,t.id)});
+    for(const s of resolvedStarts){
+      for(const e of resolvedEnds){
+        jobs.push({s,e,promise:plan(s.id,e.id)});
       }
     }
 
-    const results=await Promise.all(jobs.map(j=>j.promise));
+    const responses=await Promise.all(jobs.map(j=>j.promise));
     let candidates=[];
-
-    results.forEach((data,i)=>{
-      const job=jobs[i];
+    responses.forEach((data,i)=>{
+      const j=jobs[i];
       (data.itineraries||[]).forEach(it=>{
-        const x=normalize(it,job.o,job.t);
-        if(x && !x.cancelled) candidates.push(x);
+        const t=normalize(it,j.s,j.e);
+        if(t&&!t.cancelled) candidates.push(t);
       });
     });
 
-    const trips=chooseFirstPermittedStop(candidates);
-
+    const trips=collapseSameTrips(candidates);
     if(!trips.length){
-      throw new Error('Aktuell wurde zwischen 11:30 und 16:30 Uhr keine direkte Fahrt der Linien 4602 oder 4603 zu Domänenweg, Ringstraße oder Landesstraße gefunden.');
+      throw new Error('Im Moment wurde keine passende direkte Fahrt der Linien 4602 oder 4603 gefunden.');
     }
 
+    currentTrip=trips[0];
     render('c',trips[0]);
-    currentDestination=trips[0].target;
     document.getElementById('current').classList.remove('hidden');
 
     if(trips[1]){
       render('n',trips[1]);
       document.getElementById('next').classList.remove('hidden');
-    } else {
-      document.getElementById('next').classList.add('hidden');
     }
 
     const now=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
     document.getElementById('updatedTop').textContent='Letzte Aktualisierung: '+now+' Uhr';
-    document.getElementById('status').textContent=
-      'Automatische Aktualisierung jede Minute · vorläufige Datenquelle bis Geofox verfügbar ist';
+    document.getElementById('status').textContent='Automatische Aktualisierung jede Minute · Richtung wird gespeichert';
   }catch(e){
     error.textContent='⚠️ '+e.message;
     error.classList.remove('hidden');
@@ -391,12 +388,13 @@ async function loadTrips(){
   }
 }
 
+updateDirectionUI();
 loadTrips();
 setInterval(loadTrips,60000);
+
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('./sw.js').catch(()=>{});
 }
 </script>
-
 </body>
 </html>
