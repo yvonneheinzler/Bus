@@ -38,7 +38,7 @@ main{padding:13px 18px}
 .operator{background:var(--red);color:#fff;font-size:18px;font-weight:950;padding:8px 12px;clip-path:polygon(14% 0,86% 0,100% 50%,86% 100%,14% 100%,0 50%)}
 .line-shield{min-width:140px;height:56px;display:flex;align-items:center;justify-content:center;padding:0 22px;background:var(--red);color:#fff;font-size:38px;font-weight:950;clip-path:polygon(11% 0,89% 0,100% 50%,89% 100%,11% 100%,0 50%)}
 .trip{display:grid;grid-template-columns:1fr 28px 1fr;gap:8px;align-items:center}
-.lab{font-size:12px;color:var(--muted);font-weight:850;text-transform:uppercase}.time{font-size:39px;font-weight:950;line-height:1;margin:5px 0}.stop{font-size:17px;font-weight:900;line-height:1.15}.arrow{font-size:27px;color:#75808a}
+.lab{font-size:12px;color:var(--muted);font-weight:850;text-transform:uppercase}.time{line-height:1;margin:5px 0}.dep-time{font-size:48px;font-weight:950;color:var(--ink);letter-spacing:-1.5px}.arr-time{font-size:25px;font-weight:500;color:#68737d;margin-top:9px;margin-bottom:8px}.stop{font-size:17px;font-weight:900;line-height:1.15}.arrow{font-size:27px;color:#75808a}
 .meta{margin-top:15px;padding-top:12px;border-top:1px solid #e6eaee;display:flex;justify-content:space-between;align-items:center;gap:9px}
 .duration{border-radius:10px;padding:8px 10px;font-weight:900;font-size:15px}.current .duration{background:var(--green-soft);color:#087e2d}.next .duration{background:var(--blue-soft);color:#1366b3}
 .source{font-size:11px;color:#68737d;text-align:right}.advice{margin-top:12px;padding:11px 12px;border-radius:12px;font-size:14px;line-height:1.35}.current .advice{background:#f1fbf4}.next .advice{background:#f1f7fd}.advice b{font-size:17px}
@@ -47,7 +47,7 @@ main{padding:13px 18px}
 .empty{border:1px solid #dfe5ea;background:#fff;border-radius:17px;padding:20px;text-align:center;font-weight:800;margin-bottom:16px}
 .actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.actions button{border:0;border-radius:14px;padding:15px 8px;background:#eef2f5;color:#14345c;font-weight:900;font-size:15px}
 .status{text-align:center;color:#75808a;font-size:11px;padding:12px 3px}.hidden{display:none!important}
-@media(max-width:430px){h1{font-size:27px}.title-icon{font-size:37px}.route{font-size:13px}.dir{font-size:14px}.time{font-size:34px}.stop{font-size:15px}.line-shield{min-width:120px;font-size:34px}.ribbon{font-size:17px}}
+@media(max-width:430px){h1{font-size:27px}.title-icon{font-size:37px}.route{font-size:13px}.dir{font-size:14px}.dep-time{font-size:43px}.arr-time{font-size:23px}.stop{font-size:15px}.line-shield{min-width:120px;font-size:34px}.ribbon{font-size:17px}}
 </style>
 </head>
 <body>
@@ -70,9 +70,9 @@ main{padding:13px 18px}
    <div class="body">
     <div class="bus-top"><span class="operator">KVG</span><span class="line-shield">4602</span></div>
     <div class="trip">
-     <div><div class="lab">Abfahrt</div><div id="c-dep" class="time"></div><div id="c-from" class="stop"></div></div>
+     <div><div class="lab">🚌 ABFAHRT</div><div id="c-dep" class="time dep-time"></div><div id="c-from" class="stop"></div></div>
      <div class="arrow">→</div>
-     <div><div class="lab">Ankunft</div><div id="c-arr" class="time"></div><div id="c-to" class="stop"></div></div>
+     <div><div class="lab">Ankunft</div><div id="c-arr" class="time arr-time"></div><div id="c-to" class="stop"></div></div>
     </div>
     <div class="meta"><div class="duration">⏱ Fahrzeit: <span id="c-dur"></span></div><div class="source">Linie 4602<br>PDF-Regelfahrplan</div></div>
     <div id="c-advice" class="advice"></div>
@@ -84,9 +84,9 @@ main{padding:13px 18px}
    <div class="body">
     <div class="bus-top"><span class="operator">KVG</span><span class="line-shield">4602</span></div>
     <div class="trip">
-     <div><div class="lab">Abfahrt</div><div id="n-dep" class="time"></div><div id="n-from" class="stop"></div></div>
+     <div><div class="lab">🚌 ABFAHRT</div><div id="n-dep" class="time dep-time"></div><div id="n-from" class="stop"></div></div>
      <div class="arrow">→</div>
-     <div><div class="lab">Ankunft</div><div id="n-arr" class="time"></div><div id="n-to" class="stop"></div></div>
+     <div><div class="lab">Ankunft</div><div id="n-arr" class="time arr-time"></div><div id="n-to" class="stop"></div></div>
     </div>
     <div class="meta"><div class="duration">⏱ Fahrzeit: <span id="n-dur"></span></div><div class="source">Linie 4602<br>PDF-Regelfahrplan</div></div>
     <div id="n-advice" class="advice"></div>

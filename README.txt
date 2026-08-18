@@ -21,3 +21,9 @@ Ausfällen, Ferien oder kurzfristigen Änderungen.
 
 Zum Aktualisieren auf GitHub Pages:
 index.html, manifest.webmanifest und sw.js im Repository Bus ersetzen.
+
+V8 DESIGNÄNDERUNG:
+- Abfahrtszeit deutlich größer (48 px) und fett
+- Bus-Symbol bei ABFAHRT
+- Ankunftszeit kleiner (25 px), normal gewichtet und grau
+- mobile Darstellung entsprechend angepasst
