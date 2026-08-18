@@ -195,7 +195,7 @@ function refresh(){
  }
  const tm=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
  document.getElementById('updated').textContent='Aktualisiert: '+tm+' Uhr';
- document.getElementById('status').textContent='Linie 4602 · Ringstraße · PDF-Regelfahrplan · Aktualisierung jede Minute';
+ document.getElementById('status').textContent='v9 · Linie 4602 · Ringstraße · PDF-Regelfahrplan · Aktualisierung jede Minute';
 }
 function openMap(){
  if(!currentTrip)return;
@@ -205,7 +205,12 @@ function openMap(){
 }
 function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
 tick();setInterval(tick,1000);updateUI();refresh();setInterval(refresh,60000);
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.getRegistrations().then(regs=>regs.forEach(r=>r.unregister())).catch(()=>{});
+}
+if('caches' in window){
+  caches.keys().then(keys=>Promise.all(keys.map(k=>caches.delete(k)))).catch(()=>{});
+}
 </script>
 </body>
 </html>

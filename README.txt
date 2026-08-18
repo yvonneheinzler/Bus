@@ -1,29 +1,28 @@
-BUS-APP v7 – NUR 4602 / RINGSTRASSE
+BUS-APP v9 – OHNE SERVICE-WORKER-CACHE
 
-Nach Hause:
-IGS Hittfeld -> Lindhorst Ringstraße
-nur Linie 4602
+Funktion:
+- nur Linie 4602
+- Lindhorst immer Ringstraße
+- Nach Hause: IGS Hittfeld -> Ringstraße
+- Zur Schule: Ringstraße -> Schulzentrum Hittfeld
+- PDF-Regelfahrplan
+- Abfahrtszeit groß und fett
+- Ankunftszeit kleiner, grau und nicht fett
 
-Zur Schule:
-Lindhorst Ringstraße -> Schulzentrum Hittfeld
-nur Linie 4602
+WICHTIG ZU v9:
+- Kein dauerhafter Service-Worker-Cache mehr.
+- Beim Öffnen versucht die App vorhandene alte Service Worker zu entfernen.
+- Alte Browser-Caches dieser App werden gelöscht.
+- sw.js ist absichtlich ein "Self-Destruct"-Worker, damit bestehende Installationen
+  den früheren Cache loswerden.
+- Im unteren Status steht sichtbar "v9", damit du prüfen kannst, ob die neue Version geladen wurde.
 
-Entfernt:
-- Linie 4603
-- Domänenweg
-- Landesstraße
-- Routing-API
-- Gehzeiten
+AUF GITHUB ERSETZEN:
+Unbedingt diese drei Dateien ersetzen:
+1. index.html
+2. sw.js
+3. manifest.webmanifest
 
-Fahrzeiten werden ausschließlich aus den bereitgestellten 4602-PDF-Fahrplänen berechnet.
-Bis Geofox verfügbar ist, gibt es keine automatische Erkennung von Verspätungen,
-Ausfällen, Ferien oder kurzfristigen Änderungen.
-
-Zum Aktualisieren auf GitHub Pages:
-index.html, manifest.webmanifest und sw.js im Repository Bus ersetzen.
-
-V8 DESIGNÄNDERUNG:
-- Abfahrtszeit deutlich größer (48 px) und fett
-- Bus-Symbol bei ABFAHRT
-- Ankunftszeit kleiner (25 px), normal gewichtet und grau
-- mobile Darstellung entsprechend angepasst
+Danach GitHub Pages kurz aktualisieren lassen und die Seite mit
+https://yvonneheinzler.github.io/Bus/?v=9
+öffnen. Das ?v=9 hilft zusätzlich, einen alten Browser-Cache zu umgehen.
