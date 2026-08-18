@@ -1,7 +1,7 @@
 {
   "name": "Bus – Schule & Zuhause",
   "short_name": "Bus",
-  "description": "Direkte Busverbindungen zwischen Lindhorst und IGS/Schulzentrum Hittfeld.",
+  "description": "Direkte Schulbusverbindungen zwischen Lindhorst und Hittfeld.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

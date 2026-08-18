@@ -1,23 +1,28 @@
-BUS-APP v5 – HIN- UND RÜCKFAHRT
+BUS-APP v6 – PDF-FAHRPLANBASIS
 
-Neu:
-- großer Umschalter "ZUR SCHULE" / "NACH HAUSE"
-- merkt sich die zuletzt gewählte Richtung
-- zeigt aktuellen und nächsten möglichen Bus
-- nur Linien 4602 und 4603
-- nur direkte Fahrten, ohne Umstieg
-- berücksichtigt:
-  Schule: IGS, Hittfeld + Schulzentrum Hittfeld
-  Lindhorst: Domänenweg + Ringstraße + Landesstraße
-- zeigt Abfahrt, Einstiegshaltestelle, Ankunft, Ausstiegshaltestelle und Fahrzeit
-- automatische Aktualisierung jede Minute
-- rotes Linien-Schild zeigt dynamisch 4602 oder 4603
+Diese Version nutzt KEINE Routing-API mehr für die Fahrzeiten.
 
-WICHTIG:
-Diese Version verwendet weiterhin Transitous/MOTIS als vorläufige Datenquelle.
-Sobald der Geofox-Zugang vorliegt, sollte nur die Datenlogik ausgetauscht werden.
-Design und Bedienung können unverändert bleiben.
+Basis:
+- Linie 4602, Jesteburg – Bendestorf – Hittfeld, Mo–Fr
+- Linie 4602, Hittfeld – Bendestorf – Jesteburg, Mo–Fr
+- Linie 4603, Hittfeld – Klecken, Mo–Fr
+- Fahrplan gültig 14.12.2025 bis 12.12.2026
 
-GITHUB:
-Zum Aktualisieren des bestehenden GitHub-Pages-Projekts die Dateien aus dieser ZIP
-in das Repository "Bus" hochladen und bestehende Dateien ersetzen.
+Wichtig:
+- Domänenweg vollständig entfernt.
+- Zur Schule: nur 4602.
+- Nach Hause: 4602 plus passende 4603-Fahrt.
+- Fahrzeit = reine Busfahrzeit Abfahrtshaltestelle -> Ausstiegshaltestelle.
+- Kein Fußweg wird eingerechnet.
+- Die App zeigt jeweils den nächsten und den darauffolgenden hinterlegten Bus.
+- Automatische Aktualisierung der Anzeige jede Minute.
+
+Einschränkung bis Geofox:
+- keine Verspätungen / Ausfälle / kurzfristigen Fahrplanänderungen
+- PDFs sind Regelfahrpläne für Mo–Fr / Schülerverkehr
+- einzelne 4602-Fahrten gelten nur Mo–Do
+- Ferien und Sondertage werden nicht automatisch erkannt
+
+Zum Aktualisieren von GitHub Pages:
+Die Dateien index.html, manifest.webmanifest und sw.js in das bestehende Repository
+Bus hochladen und ersetzen. Assets müssen nur ersetzt werden, wenn sich die Bilder ändern.
