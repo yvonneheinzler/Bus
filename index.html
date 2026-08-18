@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Bus">
+<meta name="apple-mobile-web-app-title" content="Bus 4602">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="assets/icon-192.png">
-<title>Bus – Schule & Zuhause</title>
+<title>Bus 4602 – Schule & Zuhause</title>
 <style>
 :root{
   --green:#10a541;--green2:#2ab456;--green-soft:#eefaf1;
@@ -54,7 +54,7 @@ main{padding:13px 18px}
 <div class="shell">
  <div class="topbar"><span>↻ <span id="updated">Aktualisiert</span></span><b id="clock">--:--</b></div>
  <header class="head">
-  <div class="title-row"><div id="titleIcon" class="title-icon">🏠</div><div><h1 id="title">NACH HAUSE</h1><div id="route" class="route">IGS / Schulzentrum Hittfeld → Lindhorst</div></div></div>
+  <div class="title-row"><div id="titleIcon" class="title-icon">🏠</div><div><h1 id="title">NACH HAUSE</h1><div id="route" class="route">IGS Hittfeld → Ringstraße</div></div></div>
  </header>
 
  <div class="switch-wrap">
@@ -68,13 +68,13 @@ main{padding:13px 18px}
   <section id="current" class="card current hidden">
    <div class="ribbon"><span>✓ DIESEN BUS NEHMEN</span><span id="c-wait" class="wait"></span></div>
    <div class="body">
-    <div class="bus-top"><span class="operator">KVG</span><span id="c-line" class="line-shield"></span></div>
+    <div class="bus-top"><span class="operator">KVG</span><span class="line-shield">4602</span></div>
     <div class="trip">
      <div><div class="lab">Abfahrt</div><div id="c-dep" class="time"></div><div id="c-from" class="stop"></div></div>
      <div class="arrow">→</div>
      <div><div class="lab">Ankunft</div><div id="c-arr" class="time"></div><div id="c-to" class="stop"></div></div>
     </div>
-    <div class="meta"><div class="duration">⏱ Fahrzeit: <span id="c-dur"></span></div><div class="source">PDF-Regelfahrplan<br>ohne Fußweg</div></div>
+    <div class="meta"><div class="duration">⏱ Fahrzeit: <span id="c-dur"></span></div><div class="source">Linie 4602<br>PDF-Regelfahrplan</div></div>
     <div id="c-advice" class="advice"></div>
    </div>
   </section>
@@ -82,13 +82,13 @@ main{padding:13px 18px}
   <section id="next" class="card next hidden">
    <div class="ribbon"><span>➜ NÄCHSTER MÖGLICHER BUS</span><span id="n-wait" class="wait"></span></div>
    <div class="body">
-    <div class="bus-top"><span class="operator">KVG</span><span id="n-line" class="line-shield"></span></div>
+    <div class="bus-top"><span class="operator">KVG</span><span class="line-shield">4602</span></div>
     <div class="trip">
      <div><div class="lab">Abfahrt</div><div id="n-dep" class="time"></div><div id="n-from" class="stop"></div></div>
      <div class="arrow">→</div>
      <div><div class="lab">Ankunft</div><div id="n-arr" class="time"></div><div id="n-to" class="stop"></div></div>
     </div>
-    <div class="meta"><div class="duration">⏱ Fahrzeit: <span id="n-dur"></span></div><div class="source">PDF-Regelfahrplan<br>ohne Fußweg</div></div>
+    <div class="meta"><div class="duration">⏱ Fahrzeit: <span id="n-dur"></span></div><div class="source">Linie 4602<br>PDF-Regelfahrplan</div></div>
     <div id="n-advice" class="advice"></div>
    </div>
   </section>
@@ -96,15 +96,15 @@ main{padding:13px 18px}
   <div id="empty" class="empty hidden"></div>
 
   <div class="notice">
-   ℹ️ <b>Domänenweg ist entfernt.</b><br>
-   🏠 Nach Hause: 4602 ab <b>IGS Hittfeld</b> und die passende 4603 ab <b>Schulzentrum Hittfeld</b>.<br>
-   🏫 Zur Schule: ausschließlich <b>4602</b> ab Ringstraße oder Landesstraße bis Schulzentrum Hittfeld.
+   ℹ️ Diese Version ist bewusst ganz einfach:<br>
+   🏠 <b>Nach Hause:</b> nur Linie 4602, <b>IGS Hittfeld → Ringstraße</b>.<br>
+   🏫 <b>Zur Schule:</b> nur Linie 4602, <b>Ringstraße → Schulzentrum Hittfeld</b>.<br>
+   Es werden keine anderen Linien oder Lindhorster Haltestellen angezeigt.
   </div>
 
   <div class="warning">
-   ⚠️ Diese Version verwendet die von dir bereitgestellten <b>Mo–Fr-Regelfahrpläne</b>, gültig 14.12.2025–12.12.2026.
-   Die hier verwendeten Fahrten sind Schülerverkehr; einzelne 4602-Fahrten fahren Mo–Do. Ferien, Sonderfahrpläne,
-   Verspätungen und kurzfristige Änderungen werden erst mit Geofox automatisch berücksichtigt.
+   ⚠️ Bis Geofox verfügbar ist, basiert die App auf dem Mo–Fr-Regelfahrplan aus deinen PDFs.
+   Verspätungen, Ausfälle, Ferien und kurzfristige Änderungen werden noch nicht automatisch erkannt.
   </div>
 
   <div class="actions"><button onclick="openMap()">🗺 KARTE</button><button onclick="refresh()">↻ AKTUALISIEREN</button></div>
@@ -117,28 +117,26 @@ const VALID_FROM='2025-12-14';
 const VALID_TO='2026-12-12';
 
 /*
-  Fahrten direkt aus den bereitgestellten PDFs.
-  restriction:
-   "school" = nur an Schultagen in Niedersachsen
-   "schoolMonThu" = nur an Schultagen, außer freitags
+4602 – Hittfeld -> Lindhorst Ringstraße
+Nur Fahrten, bei denen im bereitgestellten PDF sowohl IGS als auch Ringstraße
+für dieselbe Fahrplan-Spalte belegt sind.
 */
 const HOME_TRIPS=[
- {line:'4602',dep:'12:25',arr:'12:33',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'school'},
- {line:'4603',dep:'13:20',arr:'13:32',from:'Schulzentrum Hittfeld',to:'Ringstraße',restriction:'school'},
- {line:'4602',dep:'13:15',arr:'13:19',from:'IGS, Hittfeld',to:'Landesstraße',restriction:'school'},
- {line:'4602',dep:'13:25',arr:'13:33',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'school'},
- {line:'4602',dep:'13:28',arr:'13:32',from:'IGS, Hittfeld',to:'Landesstraße',restriction:'school'},
- {line:'4602',dep:'14:45',arr:'14:53',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'schoolMonThu'},
- {line:'4602',dep:'15:30',arr:'15:37',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'school'},
- {line:'4602',dep:'15:30',arr:'15:38',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'schoolMonThu'}
+ {dep:'12:25',arr:'12:33',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'school'},
+ {dep:'13:25',arr:'13:33',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'school'},
+ {dep:'14:45',arr:'14:53',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'schoolMonThu'},
+ {dep:'15:30',arr:'15:37',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'school'},
+ {dep:'15:30',arr:'15:38',from:'IGS, Hittfeld',to:'Ringstraße',restriction:'schoolMonThu'}
 ];
 
+/*
+4602 – Lindhorst Ringstraße -> Schulzentrum Hittfeld
+Nur Fahrten, bei denen Ringstraße und Schulzentrum in derselben Spalte stehen.
+*/
 const SCHOOL_TRIPS=[
- {line:'4602',dep:'07:06',arr:'07:20',from:'Ringstraße',to:'Schulzentrum Hittfeld',restriction:'school'},
- {line:'4602',dep:'07:09',arr:'07:19',from:'Landesstraße',to:'Schulzentrum Hittfeld',restriction:'school'},
- {line:'4602',dep:'07:21',arr:'07:36',from:'Ringstraße',to:'Schulzentrum Hittfeld',restriction:'school'},
- {line:'4602',dep:'08:11',arr:'08:25',from:'Landesstraße',to:'Schulzentrum Hittfeld',restriction:'school'},
- {line:'4602',dep:'08:12',arr:'08:27',from:'Ringstraße',to:'Schulzentrum Hittfeld',restriction:'school'}
+ {dep:'07:06',arr:'07:20',from:'Ringstraße',to:'Schulzentrum Hittfeld',restriction:'school'},
+ {dep:'07:21',arr:'07:36',from:'Ringstraße',to:'Schulzentrum Hittfeld',restriction:'school'},
+ {dep:'08:12',arr:'08:27',from:'Ringstraße',to:'Schulzentrum Hittfeld',restriction:'school'}
 ];
 
 let direction=localStorage.getItem('busDirection')||'home';
@@ -146,36 +144,22 @@ let currentTrip=null;
 
 function pad(n){return String(n).padStart(2,'0')}
 function dateKey(d){return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`}
-function hmToDate(hm,base=new Date()){
- const [h,m]=hm.split(':').map(Number);
- const d=new Date(base); d.setHours(h,m,0,0); return d;
-}
-function duration(dep,arr){
- const a=hmToDate(dep,new Date(2000,0,1)), b=hmToDate(arr,new Date(2000,0,1));
- return Math.round((b-a)/60000);
-}
+function hmToDate(hm,base=new Date()){const [h,m]=hm.split(':').map(Number);const d=new Date(base);d.setHours(h,m,0,0);return d}
+function duration(dep,arr){return Math.round((hmToDate(arr,new Date(2000,0,1))-hmToDate(dep,new Date(2000,0,1)))/60000)}
 function minsUntil(hm){return Math.max(0,Math.ceil((hmToDate(hm)-new Date())/60000))}
 function isWeekday(d){const x=d.getDay();return x>=1&&x<=5}
-function applies(t,d){
- if(!isWeekday(d)) return false;
- if(t.restriction==='schoolMonThu' && d.getDay()===5) return false;
- return true; // App is intended to be used on actual school days.
-}
-function formatDate(d){return d.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit'})}
+function applies(t,d){if(!isWeekday(d))return false;if(t.restriction==='schoolMonThu'&&d.getDay()===5)return false;return true}
 
-function setDirection(d){
- direction=d; localStorage.setItem('busDirection',d); updateUI(); refresh();
-}
+function setDirection(d){direction=d;localStorage.setItem('busDirection',d);updateUI();refresh()}
 function updateUI(){
  const s=direction==='school';
  document.getElementById('schoolBtn').classList.toggle('active',s);
  document.getElementById('homeBtn').classList.toggle('active',!s);
  document.getElementById('title').textContent=s?'ZUR SCHULE':'NACH HAUSE';
  document.getElementById('titleIcon').textContent=s?'🏫':'🏠';
- document.getElementById('route').textContent=s?'Lindhorst → Schulzentrum Hittfeld':'IGS / Schulzentrum Hittfeld → Lindhorst';
+ document.getElementById('route').textContent=s?'Ringstraße → Schulzentrum Hittfeld':'IGS Hittfeld → Ringstraße';
 }
 function render(prefix,t){
- document.getElementById(prefix+'-line').textContent=t.line;
  document.getElementById(prefix+'-dep').textContent=t.dep;
  document.getElementById(prefix+'-arr').textContent=t.arr;
  document.getElementById(prefix+'-from').textContent=t.from;
@@ -183,8 +167,8 @@ function render(prefix,t){
  document.getElementById(prefix+'-dur').textContent=duration(t.dep,t.arr)+' Min.';
  document.getElementById(prefix+'-wait').textContent='in ca. '+minsUntil(t.dep)+' Min.';
  document.getElementById(prefix+'-advice').innerHTML=direction==='school'
-   ? '📍 <b>Einsteigen: '+t.from+'</b><br>🏫 Aussteigen: '+t.to
-   : '🏫 Einsteigen: '+t.from+'<br>📍 <b>Aussteigen: '+t.to+'</b>';
+  ? '📍 <b>Einsteigen: Ringstraße</b><br>🏫 Aussteigen: Schulzentrum Hittfeld'
+  : '🏫 <b>Einsteigen: IGS Hittfeld</b><br>📍 Aussteigen: Ringstraße';
 }
 function refresh(){
  updateUI();
@@ -194,28 +178,24 @@ function refresh(){
 
  const now=new Date(), today=dateKey(now);
  if(today<VALID_FROM||today>VALID_TO){
-   const e=document.getElementById('empty'); e.textContent='⚠️ Dieser PDF-Fahrplan ist für das heutige Datum nicht mehr gültig.'; e.classList.remove('hidden'); return;
+   const e=document.getElementById('empty');e.textContent='⚠️ Dieser PDF-Fahrplan ist für das heutige Datum nicht mehr gültig.';e.classList.remove('hidden');return;
  }
  if(!isWeekday(now)){
-   const e=document.getElementById('empty'); e.textContent='Heute ist Wochenende. Die hinterlegten PDFs gelten Montag bis Freitag.'; e.classList.remove('hidden'); return;
+   const e=document.getElementById('empty');e.textContent='Heute ist Wochenende. Der hinterlegte Schulfahrplan gilt Montag bis Freitag.';e.classList.remove('hidden');return;
  }
 
- const source=(direction==='school'?SCHOOL_TRIPS:HOME_TRIPS)
-   .filter(t=>applies(t,now))
-   .sort((a,b)=>hmToDate(a.dep)-hmToDate(b.dep));
+ const source=(direction==='school'?SCHOOL_TRIPS:HOME_TRIPS).filter(t=>applies(t,now)).sort((a,b)=>hmToDate(a.dep)-hmToDate(b.dep));
  const upcoming=source.filter(t=>hmToDate(t.dep)>=new Date(Date.now()-30000));
 
  if(!upcoming.length){
-   const e=document.getElementById('empty');
-   e.innerHTML='Für heute ist laut PDF-Regelfahrplan <b>keine weitere passende direkte Fahrt</b> hinterlegt.';
-   e.classList.remove('hidden'); currentTrip=null;
+   const e=document.getElementById('empty');e.innerHTML='Für heute ist laut PDF-Regelfahrplan <b>keine weitere passende 4602-Fahrt</b> hinterlegt.';e.classList.remove('hidden');currentTrip=null;
  }else{
-   currentTrip=upcoming[0]; render('c',upcoming[0]); document.getElementById('current').classList.remove('hidden');
-   if(upcoming[1]){render('n',upcoming[1]); document.getElementById('next').classList.remove('hidden')}
+   currentTrip=upcoming[0];render('c',upcoming[0]);document.getElementById('current').classList.remove('hidden');
+   if(upcoming[1]){render('n',upcoming[1]);document.getElementById('next').classList.remove('hidden')}
  }
- const tm=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+ const tm=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
  document.getElementById('updated').textContent='Aktualisiert: '+tm+' Uhr';
- document.getElementById('status').textContent=formatDate(now)+' · PDF-Regelfahrplan · automatische Uhr-Aktualisierung jede Minute';
+ document.getElementById('status').textContent='Linie 4602 · Ringstraße · PDF-Regelfahrplan · Aktualisierung jede Minute';
 }
 function openMap(){
  if(!currentTrip)return;
@@ -223,11 +203,8 @@ function openMap(){
  const d=encodeURIComponent(currentTrip.to+', Seevetal');
  location.href=`https://maps.apple.com/?saddr=${s}&daddr=${d}&dirflg=r`;
 }
-function tick(){
- document.getElementById('clock').textContent=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-}
+function tick(){document.getElementById('clock').textContent=new Date().toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'})}
 tick();setInterval(tick,1000);updateUI();refresh();setInterval(refresh,60000);
-
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{})}
 </script>
 </body>

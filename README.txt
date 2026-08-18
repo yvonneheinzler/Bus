@@ -1,28 +1,23 @@
-BUS-APP v6 – PDF-FAHRPLANBASIS
+BUS-APP v7 – NUR 4602 / RINGSTRASSE
 
-Diese Version nutzt KEINE Routing-API mehr für die Fahrzeiten.
+Nach Hause:
+IGS Hittfeld -> Lindhorst Ringstraße
+nur Linie 4602
 
-Basis:
-- Linie 4602, Jesteburg – Bendestorf – Hittfeld, Mo–Fr
-- Linie 4602, Hittfeld – Bendestorf – Jesteburg, Mo–Fr
-- Linie 4603, Hittfeld – Klecken, Mo–Fr
-- Fahrplan gültig 14.12.2025 bis 12.12.2026
+Zur Schule:
+Lindhorst Ringstraße -> Schulzentrum Hittfeld
+nur Linie 4602
 
-Wichtig:
-- Domänenweg vollständig entfernt.
-- Zur Schule: nur 4602.
-- Nach Hause: 4602 plus passende 4603-Fahrt.
-- Fahrzeit = reine Busfahrzeit Abfahrtshaltestelle -> Ausstiegshaltestelle.
-- Kein Fußweg wird eingerechnet.
-- Die App zeigt jeweils den nächsten und den darauffolgenden hinterlegten Bus.
-- Automatische Aktualisierung der Anzeige jede Minute.
+Entfernt:
+- Linie 4603
+- Domänenweg
+- Landesstraße
+- Routing-API
+- Gehzeiten
 
-Einschränkung bis Geofox:
-- keine Verspätungen / Ausfälle / kurzfristigen Fahrplanänderungen
-- PDFs sind Regelfahrpläne für Mo–Fr / Schülerverkehr
-- einzelne 4602-Fahrten gelten nur Mo–Do
-- Ferien und Sondertage werden nicht automatisch erkannt
+Fahrzeiten werden ausschließlich aus den bereitgestellten 4602-PDF-Fahrplänen berechnet.
+Bis Geofox verfügbar ist, gibt es keine automatische Erkennung von Verspätungen,
+Ausfällen, Ferien oder kurzfristigen Änderungen.
 
-Zum Aktualisieren von GitHub Pages:
-Die Dateien index.html, manifest.webmanifest und sw.js in das bestehende Repository
-Bus hochladen und ersetzen. Assets müssen nur ersetzt werden, wenn sich die Bilder ändern.
+Zum Aktualisieren auf GitHub Pages:
+index.html, manifest.webmanifest und sw.js im Repository Bus ersetzen.
